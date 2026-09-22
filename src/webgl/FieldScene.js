@@ -202,15 +202,16 @@ void main(){
 }
 `;
 
-/* ── the 7-zone camera path (one per page section) ── */
+/* ── the 7-zone camera path (one per page section) ──
+   Hero/contact zones sit off-axis so the core clears the headline. */
 const ZONES = [
-  { pos: [0.0, 0.1, 9.6], turb: 1.00, amp: 0.20, drill: 0.0 },
+  { pos: [-2.5, 0.5, 9.2], turb: 1.00, amp: 0.20, drill: 0.0 },
   { pos: [3.2, 1.0, 7.6], turb: 0.75, amp: 0.30, drill: 0.6 },
   { pos: [-3.0, -1.2, 7.9], turb: 1.30, amp: 0.24, drill: 1.2 },
   { pos: [1.1, 1.7, 6.7], turb: 0.95, amp: 0.38, drill: 1.8 },
   { pos: [3.6, -1.4, 8.4], turb: 1.45, amp: 0.28, drill: 2.4 },
   { pos: [-1.6, 1.3, 7.1], turb: 0.85, amp: 0.34, drill: 3.0 },
-  { pos: [0.0, 0.4, 8.9], turb: 1.10, amp: 0.22, drill: 3.6 },
+  { pos: [-2.1, 0.7, 8.7], turb: 1.10, amp: 0.22, drill: 3.6 },
 ];
 
 const GOLDEN = 2.399963;

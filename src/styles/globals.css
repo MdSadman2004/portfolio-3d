@@ -451,11 +451,19 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero-name {
   font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(46px, 12.6vw, 176px);
+  font-size: clamp(38px, min(12.6vw, 13.2vh), 160px);
   line-height: 0.86;
   letter-spacing: -0.045em;
   margin: 0 0 8px;
   text-wrap: balance;
+}
+/* short windows: compress the whole hero so it never clips */
+@media (max-height: 780px) {
+  .hero-name { font-size: clamp(34px, min(11.4vw, 11.6vh), 104px); }
+  .hero-lede { font-size: clamp(15px, 1.7vw, 20px); margin-top: 16px; }
+  .hero-badge { margin-bottom: 16px; }
+  .hero-actions { margin-top: 22px; }
+  .hero-role { margin-top: 14px; }
 }
 .hero-name .ln { display: block; overflow: hidden; }
 .hero-name .ch {
