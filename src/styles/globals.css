@@ -457,13 +457,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   margin: 0 0 8px;
   text-wrap: balance;
 }
-/* short windows: compress the whole hero so it never clips */
-@media (max-height: 780px) {
-  .hero-name { font-size: clamp(34px, min(11.4vw, 11.6vh), 104px); }
-  .hero-lede { font-size: clamp(15px, 1.7vw, 20px); margin-top: 16px; }
-  .hero-badge { margin-bottom: 16px; }
-  .hero-actions { margin-top: 22px; }
-  .hero-role { margin-top: 14px; }
+/* short windows: compress the whole hero so nothing clips and the
+   scroll cue stays inside the viewport */
+@media (max-height: 800px) {
+  .sec-hero { padding-top: 84px; padding-bottom: 36px; }
+  .hero-name { font-size: clamp(32px, min(10.6vw, 10.8vh), 96px); }
+  .hero-badge { margin-bottom: 14px; padding: 6px 12px; font-size: 9.5px; }
+  .hero-role { margin-top: 12px; font-size: 10.5px; }
+  .hero-lede { font-size: 15.5px; margin-top: 14px; max-width: 34ch; }
+  .hero-actions { margin-top: 18px; }
+  .btn { padding: 11px 16px; }
+  .hero-meta div { padding: 9px 13px; font-size: 10px; }
+  .scroll-cue { display: none; }
 }
 .hero-name .ln { display: block; overflow: hidden; }
 .hero-name .ch {

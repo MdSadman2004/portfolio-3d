@@ -1,0 +1,40 @@
+name: deploy
+
+# Build the site and ship it to Netlify on every push to main.
+# Required repo secrets: NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Collatz math (research claims on the page)
+        run: node tools/verify.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Netlify
+        run: npx --yes netlify-cli@26 deploy --prod --dir=dist --site="${{ secrets.NETLIFY_SITE_ID }}"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
