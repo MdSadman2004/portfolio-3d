@@ -179,7 +179,7 @@ export default function App() {
                 <a className="btn" href="#projects">
                   <span>See the systems</span>
                 </a>
-                <a className="btn" href="https://github.com/MdSadman20040812" target="_blank" rel="noreferrer noopener">
+                <a className="btn" href="https://github.com/MdSadman2004" target="_blank" rel="noreferrer noopener">
                   <span>GitHub ↗</span>
                 </a>
               </div>
@@ -364,10 +364,10 @@ export default function App() {
                 the honest result might be negative. Reach me through GitHub.
               </p>
               <div className="hero-actions">
-                <a className="btn btn-solid" href="https://github.com/MdSadman20040812" target="_blank" rel="noreferrer noopener">
+                <a className="btn btn-solid" href="https://github.com/MdSadman2004" target="_blank" rel="noreferrer noopener">
                   <span>Open GitHub ↗</span>
                 </a>
-                <a className="btn" href="https://github.com/MdSadman20040812/bp-local-monitor" target="_blank" rel="noreferrer noopener">
+                <a className="btn" href="https://github.com/MdSadman2004/bp-local-monitor" target="_blank" rel="noreferrer noopener">
                   <span>Pinned repo ↗</span>
                 </a>
               </div>

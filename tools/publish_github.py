@@ -13,7 +13,7 @@ import sys
 import urllib.error
 import urllib.request
 
-OWNER = "MdSadman20040812"
+OWNER = "MdSadman2004"
 REPO = "portfolio-3d"
 SITE_ID = "dadfe760-a608-4ae7-bfd5-01040accc4f0"  # mdsadman-portfolio-3d
 DESC = (

@@ -135,7 +135,7 @@ export const PROJECTS = [
     metrics: ["CLI + JSONL", "deterministic", "public repo"],
     c: "lime",
     seed: "bp.monitor.jsonl",
-    link: "https://github.com/MdSadman20040812/bp-local-monitor",
+    link: "https://github.com/MdSadman2004/bp-local-monitor",
   },
   {
     kind: "Open Source",
@@ -145,7 +145,7 @@ export const PROJECTS = [
     metrics: ["dashboard", "generation mix", "public repo"],
     c: "cobalt",
     seed: "solar.grid.hybrid",
-    link: "https://github.com/MdSadman20040812/hybrid-solar-grid",
+    link: "https://github.com/MdSadman2004/hybrid-solar-grid",
   },
 ];
 
@@ -209,7 +209,7 @@ export const SECTIONS = [
 ];
 
 export const LINKS = [
-  { k: "GitHub", v: "github.com/MdSadman20040812", href: "https://github.com/MdSadman20040812" },
+  { k: "GitHub", v: "github.com/MdSadman2004", href: "https://github.com/MdSadman2004" },
   { k: "Institution", v: "MIST, Dhaka, Bangladesh", href: "https://mist.ac.bd" },
   { k: "Branch", v: "IEEE APS MIST Student Branch", href: null },
   { k: "Status", v: "Open for collaboration & co-authorship", href: null },
