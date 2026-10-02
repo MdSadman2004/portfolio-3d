@@ -94,6 +94,7 @@ function Nav({ active }) {
           <a
             key={s.id}
             className={`nav-link ${active === s.id ? "is-active" : ""}`}
+            aria-current={active === s.id ? "true" : undefined}
             data-num={s.num}
             href={`#${s.id}`}
             onClick={() => setOpen(false)}
