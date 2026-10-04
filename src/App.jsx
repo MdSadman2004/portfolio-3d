@@ -86,14 +86,15 @@ function Nav({ active }) {
       <a className="nav-mark" href="#hero" aria-label="Back to top">
         {PROFILE.mark}
       </a>
-      <button className="nav-burger" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
+      <button className="nav-burger" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-controls="nav-links">
         {open ? "CLOSE" : "MENU"}
       </button>
-      <nav className={`nav-links ${open ? "is-open" : ""}`}>
+      <nav id="nav-links" className={`nav-links ${open ? "is-open" : ""}`}>
         {SECTIONS.filter((s) => s.id !== "hero").map((s) => (
           <a
             key={s.id}
             className={`nav-link ${active === s.id ? "is-active" : ""}`}
+            aria-current={active === s.id ? "page" : undefined}
             data-num={s.num}
             href={`#${s.id}`}
             onClick={() => setOpen(false)}
