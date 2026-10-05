@@ -1,0 +1,29 @@
+{
+  "kind": "source-guide",
+  "source_head": "54e99e0eba464265139aa36672ec8ab6d81c19ce",
+  "source_tree": "4e7045cefdced2b57c80ae98244cd2ed3632d19c",
+  "source_repository": "https://github.com/MdSadman2004/portfolio-3d",
+  "nodes": [
+    {
+      "label": "Portfolio composition",
+      "path": "src/App.jsx",
+      "detail": "Sections, navigation and interaction layout"
+    },
+    {
+      "label": "Generative artwork",
+      "path": "src/generative/core.js",
+      "detail": "Seeded canvas-art algorithms"
+    },
+    {
+      "label": "3D scene",
+      "path": "src/webgl/FieldScene.js",
+      "detail": "Three.js field implementation"
+    }
+  ],
+  "caption": "Source guide drawn from repository files; not a runtime screenshot or fresh benchmark.",
+  "generated_by": "render_guides.py",
+  "image_dimensions": [
+    1600,
+    960
+  ]
+}
