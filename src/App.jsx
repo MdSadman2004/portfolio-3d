@@ -97,6 +97,7 @@ function Nav({ active }) {
             data-num={s.num}
             href={`#${s.id}`}
             onClick={() => setOpen(false)}
+            aria-current={active === s.id ? "page" : undefined}
           >
             {s.label}
           </a>
