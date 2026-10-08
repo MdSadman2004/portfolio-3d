@@ -1,0 +1,3 @@
+## 2026-10-08 - Accessible State Toggles and Contextual Links
+**Learning:** Found several common accessibility gaps in custom UI components. Toggle buttons often lack `aria-pressed` which makes their state invisible to screen readers (e.g. orbit vs distribution modes). Links with the exact same text ("Repository ↗") are confusing out of context, and navigation menus linked to burger buttons need explicit connections (`aria-controls`, `id`, `aria-current`).
+**Action:** When adding stateful toggle buttons without native input elements, ensure `aria-pressed` is correctly applied. Always disambiguate generic link labels with `aria-label` (e.g. "Repository for Project Name"). Tie popover menus explicitly to their trigger button.
