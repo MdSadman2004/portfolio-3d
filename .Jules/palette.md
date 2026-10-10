@@ -1,0 +1,3 @@
+## 2024-10-10 - Screen Reader Improvements for Animated Text and Interactive Elements
+**Learning:** Found significant accessibility issues with the `HeroName` animated text reading each letter as a separate word to screen readers, missing active state indicators on the navigation links, and missing pressed states on the Oracle mode and limit toggle buttons.
+**Action:** When using letter-by-letter span animations for text, always add `aria-label` to the parent and `aria-hidden="true"` to the spans. Also ensure navigation links use `aria-current="page"` for active states and toggle buttons use `aria-pressed`.

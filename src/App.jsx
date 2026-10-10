@@ -55,9 +55,9 @@ function HeroName({ name }) {
   const words = name.split(" ");
   let k = 0;
   return (
-    <h1 className="hero-name">
+    <h1 className="hero-name" aria-label={name}>
       {words.map((w, wi) => (
-        <span className="ln" key={wi}>
+        <span className="ln" key={wi} aria-hidden="true">
           {w.split("").map((ch, ci) => {
             const delay = 0.05 + k++ * 0.028;
             return (
@@ -97,6 +97,7 @@ function Nav({ active }) {
             data-num={s.num}
             href={`#${s.id}`}
             onClick={() => setOpen(false)}
+            aria-current={active === s.id ? "page" : undefined}
           >
             {s.label}
           </a>
