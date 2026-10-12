@@ -483,8 +483,20 @@ export default function CollatzOracle() {
       </div>
 
       <div className="oracle-stage" ref={wrap}>
-        <canvas ref={canvas} aria-label="Interactive 3D Collatz visualisation — drag to rotate" role="img" />
-        <div className="oracle-hint">drag to rotate · runs locally, no data leaves the page</div>
+        <canvas
+          ref={canvas}
+          aria-label="Interactive 3D Collatz visualisation — drag or use arrow keys to rotate"
+          role="img"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            const s = st3d.current;
+            if (e.key === "ArrowLeft") s.yaw -= 0.15;
+            if (e.key === "ArrowRight") s.yaw += 0.15;
+            if (e.key === "ArrowUp") { e.preventDefault(); s.pitch = Math.min(0.85, s.pitch + 0.15); }
+            if (e.key === "ArrowDown") { e.preventDefault(); s.pitch = Math.max(-0.85, s.pitch - 0.15); }
+          }}
+        />
+        <div className="oracle-hint">drag or use arrow keys to rotate · runs locally, no data leaves the page</div>
       </div>
     </div>
   );

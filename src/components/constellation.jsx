@@ -339,7 +339,19 @@ export default function SkillConstellation() {
   return (
     <div className="skills-wrap">
       <div className="const" ref={wrap}>
-        <canvas ref={canvas} aria-label="Interactive 3D constellation of skills — drag to rotate" role="img" />
+        <canvas
+          ref={canvas}
+          aria-label="Interactive 3D constellation of skills — drag or use arrow keys to rotate"
+          role="img"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            const s = state.current;
+            if (e.key === "ArrowLeft") s.yaw += 0.15;
+            if (e.key === "ArrowRight") s.yaw -= 0.15;
+            if (e.key === "ArrowUp") { e.preventDefault(); s.pitch = Math.min(1.15, s.pitch + 0.15); }
+            if (e.key === "ArrowDown") { e.preventDefault(); s.pitch = Math.max(-1.15, s.pitch - 0.15); }
+          }}
+        />
         <div className="const-tip" ref={tip} />
       </div>
       <div className="skills-side">
