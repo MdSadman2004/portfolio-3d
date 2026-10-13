@@ -414,19 +414,24 @@ export default function CollatzOracle() {
   return (
     <div className="oracle">
       <div className="oracle-ctl">
-        <div className="oracle-in">
+        <form
+          className="oracle-in"
+          onSubmit={(e) => {
+            e.preventDefault();
+            commit(draft);
+          }}
+        >
           <input
             value={draft}
             onChange={(e) => setDraft(e.target.value.replace(/[^0-9]/g, "").slice(0, 6))}
-            onKeyDown={(e) => e.key === "Enter" && commit(draft)}
             inputMode="numeric"
             aria-label="Starting value n for the Collatz orbit"
           />
-          <button onClick={() => commit(draft)}>Run</button>
-        </div>
+          <button type="submit">Run</button>
+        </form>
         <div className="quickn">
           {QUICK.map((q) => (
-            <button key={q.n} onClick={() => commit(q.n)} title={q.tag}>
+            <button key={q.n} onClick={() => commit(q.n)} title={q.tag} aria-label={`Run orbit for ${q.n}, ${q.tag}`}>
               {q.n.toLocaleString()}
             </button>
           ))}
@@ -436,6 +441,7 @@ export default function CollatzOracle() {
             <button
               key={m.id}
               onClick={() => setMode(m.id)}
+              aria-pressed={mode === m.id}
               style={
                 mode === m.id
                   ? { color: "var(--gold)", borderColor: "var(--gold)", background: "rgba(246,214,141,0.08)" }
@@ -447,7 +453,12 @@ export default function CollatzOracle() {
           ))}
           {mode === "dist"
             ? [500, 2000, 8000].map((v) => (
-                <button key={v} onClick={() => setM(v)} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}>
+                <button
+                  key={v}
+                  onClick={() => setM(v)}
+                  aria-pressed={M === v}
+                  style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}
+                >
                   n≤{v}
                 </button>
               ))

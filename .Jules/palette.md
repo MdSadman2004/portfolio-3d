@@ -1,0 +1,3 @@
+## 2024-10-13 - Interactive Visualization Controls Accessibility
+**Learning:** Custom UI controls in interactive visualizations (like the Collatz Oracle) often lack proper semantic accessibility attributes. Specifically, wrapping custom search/run inputs in `<form>` tags triggers native submit/Go actions on mobile keyboards, and using `aria-pressed` on toggle buttons clearly communicates their active state to screen readers.
+**Action:** Always wrap actionable input+button combinations in `<form>` tags to leverage native behavior, and use `aria-pressed` for all toggleable selection states instead of relying purely on visual styling.
