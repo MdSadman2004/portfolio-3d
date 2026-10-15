@@ -1,0 +1,3 @@
+## 2025-02-19 - Missing Semantic State in Visual Toggles
+**Learning:** Found a pattern where interactive React components used custom styling to indicate active/selected states without accompanying `aria-pressed` or `aria-current` attributes. This leaves screen reader users completely unaware of which mode, filter, or navigation item is currently active.
+**Action:** When implementing custom toggle buttons or active states in navigation links, always translate the visual state variables (e.g. `mode === id`, `active === id`) into corresponding semantic attributes (`aria-pressed`, `aria-current="page"`) to ensure the state is programmatically determinable.
