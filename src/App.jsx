@@ -81,6 +81,15 @@ function Nav({ active }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
   return (
     <header className={`nav ${stuck ? "is-stuck" : ""}`}>
       <a className="nav-mark" href="#hero" aria-label="Back to top">
@@ -97,6 +106,7 @@ function Nav({ active }) {
             data-num={s.num}
             href={`#${s.id}`}
             onClick={() => setOpen(false)}
+            aria-current={active === s.id ? "page" : undefined}
           >
             {s.label}
           </a>

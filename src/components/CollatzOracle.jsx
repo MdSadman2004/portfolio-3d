@@ -426,7 +426,7 @@ export default function CollatzOracle() {
         </div>
         <div className="quickn">
           {QUICK.map((q) => (
-            <button key={q.n} onClick={() => commit(q.n)} title={q.tag}>
+            <button key={q.n} onClick={() => commit(q.n)} title={q.tag} aria-label={`Start with ${q.n.toLocaleString()}, ${q.tag}`}>
               {q.n.toLocaleString()}
             </button>
           ))}
@@ -441,13 +441,14 @@ export default function CollatzOracle() {
                   ? { color: "var(--gold)", borderColor: "var(--gold)", background: "rgba(246,214,141,0.08)" }
                   : undefined
               }
+              aria-pressed={mode === m.id}
             >
               {m.label}
             </button>
           ))}
           {mode === "dist"
             ? [500, 2000, 8000].map((v) => (
-                <button key={v} onClick={() => setM(v)} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}>
+                <button key={v} onClick={() => setM(v)} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined} aria-pressed={M === v}>
                   n≤{v}
                 </button>
               ))
