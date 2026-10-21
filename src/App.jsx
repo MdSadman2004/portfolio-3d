@@ -81,19 +81,31 @@ function Nav({ active }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <header className={`nav ${stuck ? "is-stuck" : ""}`}>
       <a className="nav-mark" href="#hero" aria-label="Back to top">
         {PROFILE.mark}
       </a>
-      <button className="nav-burger" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
+      <button className="nav-burger" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-controls="nav-menu">
         {open ? "CLOSE" : "MENU"}
       </button>
-      <nav className={`nav-links ${open ? "is-open" : ""}`}>
+      <nav id="nav-menu" className={`nav-links ${open ? "is-open" : ""}`}>
         {SECTIONS.filter((s) => s.id !== "hero").map((s) => (
           <a
             key={s.id}
             className={`nav-link ${active === s.id ? "is-active" : ""}`}
+            aria-current={active === s.id ? "page" : undefined}
             data-num={s.num}
             href={`#${s.id}`}
             onClick={() => setOpen(false)}
