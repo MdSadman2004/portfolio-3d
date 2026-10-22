@@ -97,6 +97,7 @@ function Nav({ active }) {
             data-num={s.num}
             href={`#${s.id}`}
             onClick={() => setOpen(false)}
+            aria-current={active === s.id ? "true" : undefined}
           >
             {s.label}
           </a>
@@ -174,13 +175,13 @@ export default function App() {
               <p className="hero-lede">{PROFILE.lede}</p>
               <div className="hero-actions">
                 <a className="btn btn-solid" href="#research">
-                  <span>Enter the research →</span>
+                  <span>Enter the research <span aria-hidden="true">→</span></span>
                 </a>
                 <a className="btn" href="#projects">
                   <span>See the systems</span>
                 </a>
                 <a className="btn" href="https://github.com/MdSadman2004" target="_blank" rel="noreferrer noopener">
-                  <span>GitHub ↗</span>
+                  <span>GitHub <span aria-hidden="true">↗</span></span>
                 </a>
               </div>
             </div>
@@ -304,7 +305,7 @@ export default function App() {
                   {p.link ? (
                     <a className="proj-link" href={p.link} target="_blank" rel="noreferrer noopener">
                       <i />
-                      Repository ↗
+                      Repository <span aria-hidden="true">↗</span>
                     </a>
                   ) : (
                     <span className="proj-link" style={{ color: "var(--dimmer)" }}>
@@ -365,10 +366,10 @@ export default function App() {
               </p>
               <div className="hero-actions">
                 <a className="btn btn-solid" href="https://github.com/MdSadman2004" target="_blank" rel="noreferrer noopener">
-                  <span>Open GitHub ↗</span>
+                  <span>Open GitHub <span aria-hidden="true">↗</span></span>
                 </a>
                 <a className="btn" href="https://github.com/MdSadman2004/bp-local-monitor" target="_blank" rel="noreferrer noopener">
-                  <span>Pinned repo ↗</span>
+                  <span>Pinned repo <span aria-hidden="true">↗</span></span>
                 </a>
               </div>
             </Reveal>
@@ -377,14 +378,14 @@ export default function App() {
                 <a key={l.k} href={l.href} target="_blank" rel="noreferrer noopener">
                   <span className="k">{l.k}</span>
                   <span className="v">{l.v}</span>
-                  <span className="arw">↗</span>
+                  <span className="arw" aria-hidden="true">↗</span>
                 </a>
               ))}
               {LINKS.filter((l) => !l.href).map((l) => (
                 <a key={l.k} as="div" href="#contact" onClick={(e) => e.preventDefault()} style={{ cursor: "default" }}>
                   <span className="k">{l.k}</span>
                   <span className="v">{l.v}</span>
-                  <span className="arw">·</span>
+                  <span className="arw" aria-hidden="true">·</span>
                 </a>
               ))}
             </Reveal>
