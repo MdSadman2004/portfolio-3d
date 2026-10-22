@@ -1,0 +1,3 @@
+## 2024-05-24 - Missing ARIA State and Decorative Text
+**Learning:** This app uses custom toggle buttons and scroll-spy navigation links without corresponding ARIA state attributes (`aria-pressed`, `aria-current`), leaving screen reader users unaware of the active state. Furthermore, decorative unicode arrows (`→`, `↗`) are used within link text without being hidden from screen readers.
+**Action:** Always broadcast active states of interactive elements using appropriate ARIA attributes. Hide decorative punctuation and visual-only text using `<span aria-hidden="true">` to prevent confusing readouts like "North East Arrow".
