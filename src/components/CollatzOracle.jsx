@@ -421,12 +421,13 @@ export default function CollatzOracle() {
             onKeyDown={(e) => e.key === "Enter" && commit(draft)}
             inputMode="numeric"
             aria-label="Starting value n for the Collatz orbit"
+            placeholder="e.g. 27"
           />
           <button onClick={() => commit(draft)}>Run</button>
         </div>
         <div className="quickn">
           {QUICK.map((q) => (
-            <button key={q.n} onClick={() => commit(q.n)} title={q.tag}>
+            <button key={q.n} onClick={() => commit(q.n)} title={q.tag} aria-label={`${q.n} - ${q.tag}`}>
               {q.n.toLocaleString()}
             </button>
           ))}
@@ -436,6 +437,7 @@ export default function CollatzOracle() {
             <button
               key={m.id}
               onClick={() => setMode(m.id)}
+              aria-pressed={mode === m.id}
               style={
                 mode === m.id
                   ? { color: "var(--gold)", borderColor: "var(--gold)", background: "rgba(246,214,141,0.08)" }
@@ -447,14 +449,14 @@ export default function CollatzOracle() {
           ))}
           {mode === "dist"
             ? [500, 2000, 8000].map((v) => (
-                <button key={v} onClick={() => setM(v)} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}>
+                <button key={v} onClick={() => setM(v)} aria-pressed={M === v} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}>
                   n≤{v}
                 </button>
               ))
             : null}
         </div>
 
-        <div className="oracle-out">
+        <div className="oracle-out" aria-live="polite" aria-atomic="true">
           {mode === "orbit" ? (
             <>
               <div><span className="k">Stopping time</span><span className="v">{st} steps</span></div>
