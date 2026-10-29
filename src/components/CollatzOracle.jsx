@@ -436,6 +436,7 @@ export default function CollatzOracle() {
             <button
               key={m.id}
               onClick={() => setMode(m.id)}
+              aria-pressed={mode === m.id}
               style={
                 mode === m.id
                   ? { color: "var(--gold)", borderColor: "var(--gold)", background: "rgba(246,214,141,0.08)" }
@@ -447,14 +448,14 @@ export default function CollatzOracle() {
           ))}
           {mode === "dist"
             ? [500, 2000, 8000].map((v) => (
-                <button key={v} onClick={() => setM(v)} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}>
+                <button key={v} onClick={() => setM(v)} aria-pressed={M === v} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}>
                   n≤{v}
                 </button>
               ))
             : null}
         </div>
 
-        <div className="oracle-out">
+        <div className="oracle-out" aria-live="polite">
           {mode === "orbit" ? (
             <>
               <div><span className="k">Stopping time</span><span className="v">{st} steps</span></div>
