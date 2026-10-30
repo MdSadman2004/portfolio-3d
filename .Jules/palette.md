@@ -1,0 +1,3 @@
+## 2024-05-24 - Inline CSS Variables & ARIA States
+**Learning:** This app heavily uses a pattern of conditional inline styling (e.g. `style={ mode === m.id ? { color: "var(--gold)" } : undefined }`) or custom classes for UI state selection rather than semantic HTML input elements. This makes the visual state obvious but completely hides it from screen readers, as they do not parse inline CSS variables or non-standard classes.
+**Action:** When finding bespoke styling used to indicate "selected" or "active" states (like `active === s.id` for navigation or colored borders for toggles), immediately ensure they are paired with appropriate ARIA attributes (`aria-current="true"`, `aria-pressed="true"`, etc.) so the state is exposed to assistive technologies.

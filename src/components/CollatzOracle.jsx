@@ -441,13 +441,14 @@ export default function CollatzOracle() {
                   ? { color: "var(--gold)", borderColor: "var(--gold)", background: "rgba(246,214,141,0.08)" }
                   : undefined
               }
+              aria-pressed={mode === m.id}
             >
               {m.label}
             </button>
           ))}
           {mode === "dist"
             ? [500, 2000, 8000].map((v) => (
-                <button key={v} onClick={() => setM(v)} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined}>
+                <button key={v} onClick={() => setM(v)} style={M === v ? { color: "var(--teal)", borderColor: "var(--teal)" } : undefined} aria-pressed={M === v}>
                   n≤{v}
                 </button>
               ))
