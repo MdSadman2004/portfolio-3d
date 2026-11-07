@@ -1,0 +1,3 @@
+## 2023-10-27 - Custom Selection States Require ARIA Alignment
+**Learning:** This app frequently relies on inline styles and custom classes (like `.is-active`, or conditional styles based on state equality) to indicate UI selection. Because these are purely visual, screen readers remain unaware of the "selected" or "active" state of navigation links and buttons.
+**Action:** Always check toggle buttons and navigation lists for semantic selection indicators. Pair visual classes/styles with `aria-current="page"` (for nav links) or `aria-pressed="true"` (for toggle buttons) to ensure true accessibility.
