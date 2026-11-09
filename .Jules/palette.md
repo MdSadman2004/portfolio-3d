@@ -1,0 +1,3 @@
+## 2025-01-20 - ARIA attributes for UI states
+**Learning:** The application uses custom classes and inline styling for UI state selection (like active/selected navigation links or buttons), but lacks corresponding ARIA attributes for screen reader accessibility.
+**Action:** Always ensure that when adding or modifying these visual states, they are paired with appropriate ARIA attributes (e.g., `aria-current="true"`, `aria-pressed="true"`).
