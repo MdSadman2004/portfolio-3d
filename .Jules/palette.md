@@ -1,0 +1,3 @@
+## 2024-05-14 - Active State ARIA Attributes
+**Learning:** Found a recurring pattern where custom UI components conditionally style their selected/active states via CSS classes or inline styles, but completely lacked the corresponding ARIA attributes (`aria-pressed` or `aria-current`). This causes screen readers to have no context on which option is currently selected.
+**Action:** When adding or modifying any UI element that can be toggled, selected, or acts as navigation in this design system, automatically ensure `aria-pressed`, `aria-current`, or `aria-selected` is added alongside the visual styling.
